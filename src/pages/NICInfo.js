@@ -3,9 +3,15 @@ import GetNICInfo from "../components/GetNICInfo";
 
 const NICInfo = () => {
   const [inputText, setInputText] = useState("");
+  const [inputPId, setInputPId] = useState("");
   const [NIC, setNIC] = useState("");
+
   const addInputText = (event) => {
     setInputText(event.target.value);
+  };
+  
+  const addInputPId = (event) => {
+    setInputPId(event.target.value);
   };
 
   const handleClick = () => {
@@ -27,7 +33,22 @@ const NICInfo = () => {
       />
       <br />
 
-      <GetNICInfo nic={NIC} />
+      <select
+        value={inputPId}
+        className="event-year-list"
+        onChange={addInputPId}
+      >
+        <option id="unknown" className="p-id" value="-">
+          -
+        </option>
+        {[...Array(10).keys()].map((id, index) => (
+          <option key={index} className="p-id" value={++id}>
+            {id}
+          </option>
+        ))}
+      </select>
+
+      <GetNICInfo nic={NIC} pId={inputPId} />
 
       <br />
       <button onClick={handleClick} disabled={!inputText}>
