@@ -9,7 +9,7 @@ const NICInfo = () => {
   const addInputText = (event) => {
     setInputText(event.target.value);
   };
-  
+
   const addInputPId = (event) => {
     setInputPId(event.target.value);
   };
@@ -20,7 +20,7 @@ const NICInfo = () => {
   };
 
   return (
-    <div className="NIC-input">
+    <div className="nic-info">
       <p>Enter your NIC number: </p>
       <input
         type="text"
@@ -30,6 +30,7 @@ const NICInfo = () => {
         placeholder="Input your NIC number"
         onChange={addInputText}
         maxLength={12}
+        required
       />
       <br />
 
@@ -37,6 +38,7 @@ const NICInfo = () => {
         value={inputPId}
         className="event-year-list"
         onChange={addInputPId}
+        required
       >
         <option id="unknown" className="p-id" value="-">
           -
@@ -48,12 +50,14 @@ const NICInfo = () => {
         ))}
       </select>
 
-      <GetNICInfo nic={NIC} pId={inputPId} />
-
       <br />
       <button onClick={handleClick} disabled={!inputText}>
         Submit
       </button>
+
+      <div className="output">
+        <GetNICInfo nic={NIC} pId={inputPId} />
+      </div>
     </div>
   );
 };

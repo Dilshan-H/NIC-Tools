@@ -5,7 +5,6 @@ const isLeapYear = require("dayjs/plugin/isLeapYear");
 dayjs.extend(isLeapYear);
 
 const GetNICInfo = ({ nic, pId }) => {
-  console.log(pId);
   if (!nic) {
     return <span className="text-output"></span>;
   }
@@ -36,8 +35,8 @@ const ProcessNIC = (nicNum, pId) => {
       return "Discrepancy in birth date (February, 29) - Not a leap year!";
     } else if (tag === 0 || tag > 866) {
       return "Discrepancy in birth date - Birth date not within the range!";
-    } else if (year < 1900) {
-      return "Discrepancy in birth year - Has to be greater than 1900";
+    } else if (year < 1910) {
+      return "Discrepancy in birth year - Has to be greater than 1910";
     } else {
       return "valid";
     }
