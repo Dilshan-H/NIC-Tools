@@ -19,11 +19,6 @@ const NICGen = () => {
         <div className="input-date">
           <input type="date" value={inputDate} onChange={processDate} />
         </div>
-        {/* <div className="input-submit">
-          <button onClick={handleClick} disabled={!inputDate}>
-            Submit
-          </button>
-        </div> */}
       </div>
 
       <div className="output">

@@ -1,0 +1,105 @@
+$container-max-width: 750px;
+
+.NIC-input {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.output-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .notification {
+    margin: 10px;
+    width: fit-content;
+  }
+}
+.NIC-output {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+
+  .notification {
+    margin: 10px;
+  }
+
+  .card {
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    padding: 6px;
+
+    .card-header .card-header-title {
+      justify-content: center;
+      box-shadow: 0 0.35em 0.5em rgb(10 10 10 /20%);
+    }
+  }
+
+  .info-bday .container-bday {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 25px 25px;
+    gap: 0px 7px;
+    grid-template-areas:
+      "day month"
+      "day year";
+
+    .day {
+      grid-area: day;
+      width: fit-content;
+      font-size: 50px;
+      color: #00d1b2;
+      align-content: center;
+      position: relative;
+      top: 0px;
+    }
+    .month {
+      grid-area: month;
+      width: fit-content;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      top: 6px;
+    }
+    .year {
+      grid-area: year;
+      width: fit-content;
+      font-size: 18px;
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+.Content {
+  .navbar {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: #ffffffab;
+  padding: 15px;
+  border-radius: 15px;
+
+  input[type="text"] {
+    text-align: center;
+    max-width: 270px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    margin: 20px;
+  }
+}

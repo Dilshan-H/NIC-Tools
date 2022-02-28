@@ -6,16 +6,24 @@ dayjs.extend(isLeapYear);
 
 const GetNICInfo = ({ nic, pId }) => {
   if (!nic) {
-    return <span className="text-output"></span>;
+    return <span className="null-output"></span>;
   }
 
   const nicNum = nic.match(/\d{9}[vVxX]|\d{12}/); // 199847648124 | 487694781V
 
   return (
-    <span className="error-output">
-      {nicNum ? ProcessNIC(nicNum[0], pId) : "Not a valid NIC number!"}
-      <br />
-    </span>
+    <div className="output-content">
+      <span>
+        {nicNum ? (
+          ProcessNIC(nicNum[0], pId)
+        ) : (
+          <div className="notification is-danger is-light">
+            Not a valid NIC number!
+          </div>
+        )}
+        <br />
+      </span>
+    </div>
   );
 };
 
@@ -33,7 +41,7 @@ const ProcessNIC = (nicNum, pId) => {
   const verifyNIC = (tag, isLeap, year) => {
     if (!isLeap && (tag === 60 || tag === 560)) {
       return "Discrepancy in birth date (February, 29) - Not a leap year!";
-    } else if (tag === 0 || tag > 866) {
+    } else if (tag === 0 || tag > 866 || (tag > 366 && tag <= 500)) {
       return "Discrepancy in birth date - Birth date not within the range!";
     } else if (year < 1910) {
       return "Discrepancy in birth year - Has to be greater than 1910";
@@ -54,16 +62,23 @@ const ProcessNIC = (nicNum, pId) => {
       const tmpDate = dayjs(year + "-01-01")
         .dayOfYear(tag - diff)
         .format("YYYY-MM-DD");
+        console.log(tmpDate);
       return tmpDate;
     }
   };
 
   const getAge = (bDay) => {
     const now = dayjs();
-    const years = now.diff(bDay, "y");
-    const months = now.diff(bDay, "M");
-    const days = now.diff(bDay, "d");
-    return { years, months, days };
+    let years = now.diff(bDay, "y");
+    // const months = now.diff(bDay, "M");
+    // const days = now.diff(bDay, "d");
+    if (years < 0) {
+      return "⏳ In Future";
+    } else if (years === 1) {
+      return "1 Year";
+    } else {
+      return years + " Years";
+    }
   };
 
   const getGender = (tag) => {
@@ -73,23 +88,23 @@ const ProcessNIC = (nicNum, pId) => {
   const getProvince = (id) => {
     switch (parseInt(id)) {
       case 1:
-        return "Western"
+        return "Western";
       case 2:
-        return "Central"
+        return "Central";
       case 3:
-        return "Southern"
+        return "Southern";
       case 4:
-        return "Northern"
+        return "Northern";
       case 5:
-        return "Eastern"
+        return "Eastern";
       case 6:
-        return "North Western"
+        return "North Western";
       case 7:
-        return "North Central"
+        return "North Central";
       case 8:
-        return "Uva"
+        return "Uva";
       case 9:
-        return "Sabaragamuwa"
+        return "Sabaragamuwa";
       default:
         return "Unknown";
     }
@@ -118,25 +133,54 @@ const ProcessNIC = (nicNum, pId) => {
 
   if (pId) {
     province = getProvince(pId);
-    province += (province !== "Unknown") ? " Province" : "";
+    province += province !== "Unknown" ? " Province" : "";
+  } else {
+    province = "Unknown";
   }
+
+  gender = (gender === "Male") ? "👨 " + gender : "👩 " + gender;
+  const data = [
+    ["NIC Type", nicType],
+    ["Gender", gender],
+    ["Age", age],
+    ["Province", province],
+  ];
 
   return (
     <div>
       {isValid === "valid" ? (
         <div className="NIC-output">
-          <div className="NIC-number">NIC Number: {nicNum}</div>
-          <div className="NIC-type">NIC Type: {nicType}</div>
-          <div className="BDay-year">Year: {bDay.split("-")[0]}</div>
-          <div className="BDay-month">Month: {bDay.split("-")[1]}</div>
-          <div className="BDay-day">Day: {bDay.split("-")[2]}</div>
-          <div className="Age">Age: {age['years']}</div>
-          <div className="Province">Province: {province}</div>
+          {data.map((info, index) => {
+            return (
+              <div className="card" key={index} data-aos="slide-up" data-aos-delay={index*100}>
+                <header className="card-header">
+                  <p className="card-header-title">{info[0]}</p>
+                </header>
+                <div className="card-content">
+                  <div className="content">{info[1]}</div>
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="info-bday">
+            <div className="card" data-aos="slide-up" data-aos-delay="400">
+              <header className="card-header">
+                <p className="card-header-title">Birthday</p>
+              </header>
+              <div className="card-content">
+                <div className="content container-bday">
+                  <span className="day title">{bDay.split("-")[2]}</span>
+                  <span className="month">{dayjs(bDay).format("MMMM")}</span>
+                  <span className="year">{bDay.split("-")[0]}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="NIC-output">
-          Malformed NIC number! <br />
-          {isValid}
+          <div className="notification is-danger is-light">{isValid}</div>
         </div>
       )}
     </div>

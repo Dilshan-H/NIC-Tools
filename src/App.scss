@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+html {
+  height: 100%;
+  background-color: #00dbde;
+  background-image: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+}
+
+#navbarBasic {
+  #t-1,
+  #t-2,
+  #t-3 {
+    padding-top: 15px;
+    padding-left: 20px;
+  }
+}
