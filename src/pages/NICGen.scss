@@ -1,0 +1,67 @@
+.nic-gen {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  .control {
+    input[type="date"] {
+      border-color: #00d1b2;
+      border-radius: 10px;
+      border-width: 1.5px;
+      padding: 5px;
+      text-align: center;
+      font-size: 16px;
+      height: 40px;
+      cursor: pointer;
+
+      &:hover {
+        border-width: 2px;
+      }
+    }
+  }
+}
+
+.id-output {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .box {
+    margin: 20px 40px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.5em 0.5em 0.525em rgb(10 10 10 / 40%);
+
+    .box-img {
+      width: 75px;
+      height: 75px;
+      background-color: #00d1b2;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0px;
+      left: -55px;
+      margin: 5px 10px;
+      box-shadow: inset -1em 0em 1em 0px rgb(10 10 10 / 40%);
+    }
+
+    .box-content {
+      margin-left: -50px;
+      margin-right: 15px;
+    }
+
+    .icon {
+      color: #fff;
+    }
+  }
+}

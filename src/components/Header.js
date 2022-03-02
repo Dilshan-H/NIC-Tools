@@ -45,8 +45,8 @@ const Header = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span class="icon-text">
-                <span class="icon">
+              <span className="icon-text">
+                <span className="icon">
                   <ion-icon name="logo-github" size="large"></ion-icon>
                 </span>
                 <b>View on GitHub</b>

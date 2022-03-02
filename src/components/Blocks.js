@@ -5,12 +5,12 @@ const Blocks = () => {
     <div className="Blocks">
       <div className="content-box" data-aos="slide-up" data-aos-delay="100">
         <div className="box">
-          <span class="icon-text">
-            <span class="icon has-text-success is-large">
+          <span className="icon-text">
+            <span className="icon has-text-success is-large">
               <ion-icon name="finger-print" size="large"></ion-icon>
             </span>
             <span>
-              <h2 class="subtitle">
+              <h2 className="subtitle">
                 <strong>Privacy</strong>
               </h2>
             </span>
@@ -25,15 +25,15 @@ const Blocks = () => {
 
       <div className="content-box" data-aos="slide-up" data-aos-delay="300">
         <div className="box">
-          <span class="icon-text">
-            <span class="icon has-text-success is-large">
+          <span className="icon-text">
+            <span className="icon has-text-success is-large">
               <ion-icon
                 name="information-circle-outline"
                 size="large"
               ></ion-icon>
             </span>
             <span>
-              <h2 class="subtitle">
+              <h2 className="subtitle">
                 <strong>NIC Information</strong>
               </h2>
             </span>
@@ -49,12 +49,12 @@ const Blocks = () => {
 
       <div className="content-box" data-aos="slide-up" data-aos-delay="500">
         <div className="box">
-          <span class="icon-text">
-            <span class="icon has-text-success is-large">
+          <span className="icon-text">
+            <span className="icon has-text-success is-large">
               <ion-icon name="construct" size="large"></ion-icon>
             </span>
             <span>
-              <h2 class="subtitle">
+              <h2 className="subtitle">
                 <strong>Generate NIC</strong>
               </h2>
             </span>
