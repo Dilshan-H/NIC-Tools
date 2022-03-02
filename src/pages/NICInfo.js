@@ -21,7 +21,7 @@ const NICInfo = () => {
   };
 
   return (
-    <div className="NIC-input container" data-aos="flip-up">
+    <div id="NIC-input" className="NIC-input container" data-aos="flip-up">
       <div className="field">
         <label className="label">Your NIC number:</label>
         <div className="control">

@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="Header">
-      <nav className="navbar has-shadow" role="navigation" aria-label="main navigation">
+      <nav
+        className="navbar has-shadow"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
           <NavLink className="navbar-item" to="/">
             <h1 className="title">𝐍𝐈𝐂-𝐓𝐨𝐨𝐥𝐬</h1>
@@ -34,9 +38,19 @@ const Header = () => {
           </div>
 
           <div className="navbar-end">
-            <a id="t-3" className="navbar-item" href="https://github.com/h-dilshan/nic-tools/">
-              <img src="/images/GitHub-Mark.png" alt="View on GitHub" />
-              <b>View on GitHub</b>
+            <a
+              id="t-3"
+              className="navbar-item"
+              href="https://github.com/dilshan-h/nic-tools/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span class="icon-text">
+                <span class="icon">
+                  <ion-icon name="logo-github" size="large"></ion-icon>
+                </span>
+                <b>View on GitHub</b>
+              </span>
             </a>
           </div>
         </div>
