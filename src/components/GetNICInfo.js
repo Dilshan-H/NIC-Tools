@@ -62,7 +62,6 @@ const ProcessNIC = (nicNum, pId) => {
       const tmpDate = dayjs(year + "-01-01")
         .dayOfYear(tag - diff)
         .format("YYYY-MM-DD");
-        console.log(tmpDate);
       return tmpDate;
     }
   };
@@ -138,7 +137,7 @@ const ProcessNIC = (nicNum, pId) => {
     province = "Unknown";
   }
 
-  gender = (gender === "Male") ? "👨 " + gender : "👩 " + gender;
+  gender = gender === "Male" ? "👨 " + gender : "👩 " + gender;
   const data = [
     ["NIC Type", nicType],
     ["Gender", gender],
@@ -152,7 +151,12 @@ const ProcessNIC = (nicNum, pId) => {
         <div className="NIC-output">
           {data.map((info, index) => {
             return (
-              <div className="card" key={index} data-aos="slide-up" data-aos-delay={index*100}>
+              <div
+                className="card"
+                key={index}
+                data-aos="slide-up"
+                data-aos-delay={index * 100}
+              >
                 <header className="card-header">
                   <p className="card-header-title">{info[0]}</p>
                 </header>
