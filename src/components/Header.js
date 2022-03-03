@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const managePane = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <div className="Header">
       <nav
@@ -8,17 +15,18 @@ const Header = () => {
         role="navigation"
         aria-label="main navigation"
       >
-        <div className="navbar-brand">
+        <div className={isOpen ? "navbar-brand is-active":"navbar-brand"}>
           <NavLink className="navbar-item" to="/">
             <h1 className="title">𝐍𝐈𝐂-𝐓𝐨𝐨𝐥𝐬</h1>
           </NavLink>
           <a
             role="button"
-            className="navbar-burger"
+            className={isOpen ? "navbar-burger is-active" : "navbar-burger"}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
             href="#"
+            onClick={managePane}
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -26,7 +34,7 @@ const Header = () => {
           </a>
         </div>
 
-        <div id="navbarBasic" className="navbar-menu">
+        <div id="navbarBasic" className={isOpen ? "navbar-menu is-active" : "navbar-menu"}>
           <div className="navbar-start">
             <NavLink id="t-1" className="navbar-item" to="/nic-info">
               NIC Info
