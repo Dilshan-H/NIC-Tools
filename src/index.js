@@ -4,18 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter} from "react-router-dom";
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_NICTOOLS_API_KEY,
-  authDomain: "nic-tools.firebaseapp.com",
-  projectId: "nic-tools",
-  storageBucket: "nic-tools.appspot.com",
-  messagingSenderId: "301115783603",
-  appId: "1:301115783603:web:5bbf07b7e06b4bca6333c6"
-};
+// const firebaseConfig = {
+//   apiKey: process.env.REACT_APP_NICTOOLS_API_KEY,
+//   authDomain: "nic-tools.firebaseapp.com",
+//   projectId: "nic-tools",
+//   storageBucket: "nic-tools.appspot.com",
+//   messagingSenderId: "301115783603",
+//   appId: "1:301115783603:web:5bbf07b7e06b4bca6333c6"
+// };
 
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
