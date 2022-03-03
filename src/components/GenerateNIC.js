@@ -33,19 +33,19 @@ const GetNICInfo = ({ bDay }) => {
         : dateTag;
     if (year < 2000) {
       newIDs = {
-        male: bDay.year() + (dateTag + "0XXXX"),
-        female: bDay.year() + (parseInt(dateTag) + 500 + "0XXXX"),
+        male: bDay.year() + (dateTag + "0 XXXX"),
+        female: bDay.year() + (parseInt(dateTag) + 500 + "0 XXXX"),
       };
       oldIDs = {
-        male: bDay.year().toString().substring(2) + (dateTag + "XXXX V"),
+        male: bDay.year().toString().substring(2) + (dateTag + " XXXX V"),
         female:
           bDay.year().toString().substring(2) +
-          (parseInt(dateTag) + 500 + "XXXX V"),
+          (parseInt(dateTag) + 500 + " XXXX V"),
       };
     } else {
       newIDs = {
-        male: bDay.year() + (dateTag + "0XXXX"),
-        female: bDay.year() + (parseInt(dateTag) + 500 + "0XXXX"),
+        male: bDay.year() + (dateTag + "0 XXXX"),
+        female: bDay.year() + (parseInt(dateTag) + 500 + "0 XXXX"),
       };
       oldIDs = {};
     }
@@ -62,9 +62,9 @@ const GetNICInfo = ({ bDay }) => {
           </span>
         </div>
         <div className="box-content">
-          <span className="">{newIDs["male"]}</span>
+          <span className="subtitle">{newIDs["male"]}</span>
           <br />
-          <span className="">{oldIDs["male"]}</span>
+          <span className="subtitle">{oldIDs["male"]}</span>
         </div>
       </div>
 
@@ -75,9 +75,9 @@ const GetNICInfo = ({ bDay }) => {
           </span>
         </div>
         <div className="box-content">
-          <span className="">{newIDs["female"]}</span>
+          <span className="subtitle">{newIDs["female"]}</span>
           <br />
-          <span className="">{oldIDs["female"]}</span>
+          <span className="subtitle">{oldIDs["female"]}</span>
         </div>
       </div>
     </div>

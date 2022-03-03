@@ -36,11 +36,11 @@ const Header = () => {
 
         <div id="navbarBasic" className={isOpen ? "navbar-menu is-active" : "navbar-menu"}>
           <div className="navbar-start">
-            <NavLink id="t-1" className="navbar-item" to="/nic-info">
+            <NavLink id="t-1" className="navbar-item" to="/nic-info" onClick={managePane}>
               NIC Info
             </NavLink>
 
-            <NavLink id="t-2" className="navbar-item" to="/nic-generate">
+            <NavLink id="t-2" className="navbar-item" to="/nic-generate" onClick={managePane}>
               Generate NIC
             </NavLink>
           </div>
@@ -52,6 +52,7 @@ const Header = () => {
               href="https://github.com/dilshan-h/nic-tools/"
               rel="noopener noreferrer"
               target="_blank"
+              onClick={managePane}
             >
               <span className="icon-text">
                 <span className="icon">

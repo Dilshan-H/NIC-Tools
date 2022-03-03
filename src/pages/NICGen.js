@@ -15,7 +15,7 @@ const NICGen = () => {
   // };
 
   return (
-    <div className="nic-gen container" data-aos="flip-up">
+    <div id="NIC-gen" className="nic-gen container" data-aos="flip-up">
       <div className="field">
         <label className="label">Select your birthday:</label>
         <div className="control">
