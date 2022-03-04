@@ -23,7 +23,7 @@ const Blocks = () => {
             </span>
             <p>
               This is a Free &amp; Open Source utility. Your data never leaves
-              your computer as data processing happens within your browser.{" "}
+              your computer as data processing happens within your browser.
               <br />
               Not sure? Review the source code @GitHub
             </p>
