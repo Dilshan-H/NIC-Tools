@@ -5,7 +5,7 @@ const Blocks = () => {
   return (
     <div className="Blocks">
       <a
-        href="https://github.com/dilshan-h/nic-tools/"
+        href="https://github.com/Dilshan-H/NIC-Tools"
         rel="noopener noreferrer"
         target="_blank"
       >

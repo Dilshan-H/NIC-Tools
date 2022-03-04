@@ -61,7 +61,7 @@ const Header = () => {
             <a
               id="t-3"
               className="navbar-item"
-              href="https://github.com/dilshan-h/nic-tools/"
+              href="https://github.com/Dilshan-H/NIC-Tools"
               rel="noopener noreferrer"
               target="_blank"
               onClick={managePane}
